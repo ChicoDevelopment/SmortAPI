@@ -10,7 +10,7 @@ require_once __DIR__ . "/../util/Constantes.php";
 require_once RAIZ . '\..\model\Erro.php';
 
 
-function parametros($camposrequeridos)
+function parametros($camposrequerido)
 {
 
     $erro = new Erro();
@@ -21,16 +21,13 @@ function parametros($camposrequeridos)
     $camposerro = "";
     $parametros = $_REQUEST;
 
-    foreach ($camposrequeridos as $campo) {
-        if (!isset($parametros[$campo]) || strlen(trim($parametros[$campo])) <= 0) {
-            $verifica = true;
-            $camposerro .= $campo . ', ';
-        }
+    if (!isset($camposrequerido)) {
+        $verifica = true;
     }
 
     if ($verifica) {
         $msg['erro'] = true;
-        $msg['mensagem'] = 'Campo(s) requerido(s) ' . substr($camposerro, 0, -2) . ' estao faltando ou vazios';
+        $msg['mensagem'] = 'Há um campo faltando...';
         $bool = false;
 
         $erro->setResposta($msg);
@@ -49,7 +46,7 @@ function resposta($resultado)
 
     if ($resultado == true) {
         $resposta['erro'] = false;
-        $resposta['mensagem'] = 'Acao realizada com sucesso';
+        $resposta['mensagem'] = 'Açãoo realizada com sucesso';
     } else {
         $resposta['erro'] = true;
         $resposta['mensagem'] = 'Algum erro ocorreu';

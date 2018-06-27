@@ -9,6 +9,7 @@
 require_once __DIR__ . "/../util/Constantes.php";
 
 require_once RAIZ . "\..\util\Conexao.php";
+require_once RAIZ . "\..\dao\DemandaDAO.php";
 
 class demandaDAO
 {

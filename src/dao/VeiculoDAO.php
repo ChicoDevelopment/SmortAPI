@@ -32,7 +32,7 @@ class veiculoDAO
             $veiculo->getCor(),
             $veiculo->getPlaca());
 
-        return $stmt->execute();
+            return $stmt->execute();
     }
 
     function alterar(Veiculo $veiculo)
@@ -49,15 +49,13 @@ class veiculoDAO
             $veiculo->getIdVeiculo());
 
         return $stmt->execute();
+
     }
 
     function getLista()
     {
 
         $stmt = $this->con->prepare("SELECT * FROM veiculo v JOIN marca m ON v.idMarca = m.idMarca;");
-
-        //$stmt->bind_param("i",
-        //    $idTransportador);
 
         $stmt->execute();
 
@@ -89,15 +87,54 @@ class veiculoDAO
 
     }
 
-    function excluirVeiculo($idVeiculo)
+    function excluir(Veiculo $veiculo)
     {
 
         $stmt = $this->con->prepare("DELETE FROM veiculo WHERE idVeiculo like ?;");
 
         $stmt->bind_param(i,
-            $idVeiculo);
+            $veiculo->getIdVeiculo());
 
         return $stmt->execute();
+    }
+
+    function pesquisar(Veiculo $veiculo)
+    {
+
+        $stmt = $this->con->prepare("SELECT * FROM veiculo v 
+                                             JOIN marca m ON v.idMarca = m.idMarca 
+                                             JOIN tipoveiculo t ON v.idTipo = t.idTipo 
+                                            WHERE placa = ?;");
+
+        $stmt->bind_param("s",
+        $veiculo->getPlaca());
+
+        $stmt->execute();
+
+        $stmt->bind_result($idVeiculo, $idTipo, $modelo, $idMarca, $cor, $placa, $idTransportador, $idMarca, $descricaoMarca, $idTipo, $descricaoTipo);
+
+        while ($stmt->fetch()) {
+
+            $marca = array();
+            $marca["idmarca"] = $idMarca;
+            $marca["descricaomarca"] = $descricaoMarca;
+
+            $tipo = array();
+            $tipo["idtipo"] = $idTipo;
+            $tipo["descricaotipo"] = $descricaoTipo;
+
+            $veiculo = array();
+            $veiculo["idveiculo"] = $idVeiculo;
+            $veiculo["placa"] = $placa;
+            $veiculo["modelo"] = $modelo;
+            $veiculo["cor"] = $cor;
+            $veiculo["marca"] = $marca;
+            $veiculo["tipo"] = $tipo;
+
+        }
+
+        return $veiculo;
+
     }
 
 }

@@ -22,6 +22,8 @@ require __DIR__ . '/../src/routes/DemandaRota.php';
 require __DIR__ . '/../src/routes/TransportadorRota.php';
 require __DIR__ . '/../src/routes/UsuarioRota.php';
 require __DIR__ . '/../src/routes/VeiculoRota.php';
+require __DIR__ . '/../src/routes/TipoVeiculoRota.php';
+require __DIR__ . '/../src/routes/MarcaRota.php';
 
 // Register middleware
 require __DIR__ . '/../src/structure/middleware.php';
