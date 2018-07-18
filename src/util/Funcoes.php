@@ -9,6 +9,7 @@
 require_once __DIR__ . "/../util/Constantes.php";
 require_once RAIZ . '\..\model\Erro.php';
 
+//Working
 
 function parametros($camposrequerido)
 {

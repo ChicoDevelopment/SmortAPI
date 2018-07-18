@@ -7,10 +7,10 @@
  */
 
 require_once __DIR__ . "/../util/Constantes.php";
-
 require_once RAIZ . "\..\util\Conexao.php";
 require_once RAIZ . "\..\model\TipoVeiculo.php";
 
+//Working
 class TipoVeiculoDAO
 {
     private $con;

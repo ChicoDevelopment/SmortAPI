@@ -10,13 +10,14 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require_once __DIR__ . "/../util/Constantes.php";
-
 require_once RAIZ . "\..\util\Funcoes.php";
 require_once RAIZ . '\..\model\Veiculo.php';
 require_once RAIZ . '\..\model\TipoVeiculo.php';
 require_once RAIZ . '\..\model\Marca.php';
 require_once RAIZ . '\..\model\Transportador.php';
 require_once RAIZ . '\..\dao\VeiculoDAO.php';
+
+//Working
 
 $app->group('/veiculo', function () use ($app) {
 

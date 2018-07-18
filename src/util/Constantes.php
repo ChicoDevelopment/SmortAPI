@@ -8,7 +8,7 @@
 
 define('DB_USERNAME', 'teste');
 define('DB_PASSWORD', 'teste');
-define('DB_HOST', '192.168.0.107');
+define('DB_HOST', '192.168.43.199');
 define('DB_NAME', 'smort');
 
 define('USER_CREATED', 101);

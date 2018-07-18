@@ -5,11 +5,12 @@
  * Date: 22/06/2018
  * Time: 23:04
  */
-require_once __DIR__ . "/../util/Constantes.php";
 
+require_once __DIR__ . "/../util/Constantes.php";
 require_once RAIZ . "\..\util\Conexao.php";
 require_once RAIZ . "\..\model\Marca.php";
 
+//Working
 class MarcaDAO
 {
     private $con;
